@@ -20,3 +20,9 @@ jobs:
       - name: Sync to S3 (Beta)
         run: |
           aws s3 sync . s3://${{ secrets.S3_BUCKET_BETA }}
+          
+      - name: Call Bedrock (beta)
+        run: |
+          pip install boto3 --upgrade
+          cd caip_03_02
+          python run_bedrock.py
